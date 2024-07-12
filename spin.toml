@@ -1,0 +1,15 @@
+spin_manifest_version = 2
+
+[application]
+name = "filesystem"
+version = "0.1.0"
+authors = ["Rajat Jindal <rajatjindal83@gmail.com>"]
+description = ""
+
+[[trigger.command]]
+component = "filesystem"
+
+[component.filesystem]
+source = "target/wasm32-wasi/release/job.wasm"
+files = [ { source = "src", destination = "/" } ]
+build = ["cargo component build --target wasm32-wasi --release"]
